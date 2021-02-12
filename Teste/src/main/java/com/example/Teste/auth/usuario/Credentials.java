@@ -8,9 +8,6 @@ import javax.persistence.Embeddable;
 @Embeddable
 @Data
 public class Credentials {
-    @Column(nullable = false, unique = true)
-    private String username;
-
     @Column(nullable = false, length = 255)
     private String password;
 }

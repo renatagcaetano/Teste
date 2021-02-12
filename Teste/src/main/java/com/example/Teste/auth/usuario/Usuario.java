@@ -1,7 +1,6 @@
 package com.example.Teste.auth.usuario;
 
 import com.example.Teste.auth.role.Role;
-import com.example.Teste.auth.usuario.Credentials;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -22,6 +21,9 @@ public class Usuario implements UserDetails {
 
     @Column(nullable = false)
     private String nome;
+
+    @Column(nullable = false, unique = true)
+    private String username;
 
     private Boolean ativo = true;
 
@@ -46,7 +48,7 @@ public class Usuario implements UserDetails {
 
     @Override
     public String getUsername() {
-        return credentials.getUsername();
+        return getUsername();
     }
 
     @Override
